@@ -547,23 +547,19 @@ halfTree(10)
 */
 let tree = (n) => {
   let stringa = "";
-  for (let i = 1; i < 2 * (n); i=i+2) {
-    
-      for (let j = ((n / 2) +1) - i; j > 0; j--) {
-        stringa += " ";
-      }
-      for (let k=0;k<i;k++){
-        stringa += "*";
-      }
+  for(let i =1; i<=2*n ;i++){
+    stringa +="*";
+    if(i%2!=0){
       
-      console.log(stringa + "\n");
-      stringa=stringa.split(" ").join("");
-
-    
-
+    for(let j=0;j<n-(i/2);j++){
+      stringa=" "+stringa;
+    }
+    console.log(stringa+ "\n");
+    stringa=stringa.trim();   
+    }
   }
 }
-tree(3)
+tree(15)
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
@@ -574,10 +570,10 @@ function isItPrime(n){
   }
   for(let i=3;i<n;i=i+2){
     if(n%i==0){
-      console.log(`Il numero è divisibile per ${i}`)
+      console.log(`Il numero ${n} è divisibile per ${i}`)
       return false
     }
   }
   return true
 }
-console.log(isItPrime(26))
+console.log(isItPrime(87))
